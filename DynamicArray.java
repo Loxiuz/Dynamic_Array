@@ -4,16 +4,21 @@ public class DynamicArray{
 
     private int[] dataArr;
     private int dataArrSize;
+    private int growSize = 10;
+    final private int INITIAL_SIZE = 10;
 
     public DynamicArray(){
-        this.dataArr = new int[10];
+        this.dataArr = new int[INITIAL_SIZE];
         this.dataArrSize = 0;
     }
 
     public void add(int val){
+        if(dataArr.length == dataArrSize){ 
+            grow();
+        }
         dataArr[dataArrSize] = val;
         dataArrSize++;
-        // System.out.print(toString());
+        System.out.print(toString() + "\n");
     }
 
     public int get(int i){
@@ -70,6 +75,15 @@ public class DynamicArray{
         dataArr = new int[10];
         dataArrSize = 0;
         System.out.println(toString());
+    }
+
+    private void grow(){
+        var newArr = new int[dataArr.length + growSize];
+        for(int i = 0; i < dataArrSize; i++){
+            newArr[i] = dataArr[i];
+        }
+        dataArr = newArr;
+        System.out.print(toString());
     }
 
     public String toString(){

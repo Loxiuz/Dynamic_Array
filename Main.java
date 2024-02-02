@@ -6,13 +6,18 @@ public class Main{
 
         DynamicArray dArr = new DynamicArray();
 
+        System.out.println(dArr.toString());
         dArr.add(3);
         dArr.add(6);
         dArr.add(14);
         dArr.add(12);
         dArr.add(17);
         dArr.add(49);
-        dArr.add(23);
+        dArr.add(27);
+        dArr.add(33);
+        dArr.add(45);
+        dArr.add(58);
+        dArr.add(100);
 
         // System.out.printf("Element from index: %d%n", dArr.get(1));
         // System.out.printf("Element from index: %d%n", dArr.get(0));
