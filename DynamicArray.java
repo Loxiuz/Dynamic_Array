@@ -16,7 +16,17 @@ public class DynamicArray{
         // System.out.print(toString());
     }
 
-    public int get(int i){return dataArr[i];}
+    public int get(int i){
+        if(dataArrSize == 0){
+            System.out.println("Array empty!");
+            return 0;
+        } else if(i >= dataArrSize || i < 0) {
+            System.out.printf("Invalid index: %d", i);
+            return 0;
+        } else {
+            return dataArr[i];
+        }    
+    }
 
     public int size(){return dataArrSize;}
 
@@ -51,41 +61,18 @@ public class DynamicArray{
          if(i >= dataArrSize || i < 0){
             System.out.printf("Invalid index: %d", i);
         } else {
-            
+            dataArr[i] = val;
         }
+        System.out.println(toString());
     }
 
-    // public void clear(){}
+    public void clear(){
+        dataArr = new int[10];
+        dataArrSize = 0;
+        System.out.println(toString());
+    }
 
     public String toString(){
         return Arrays.toString(dataArr);
-    }
-
-    public static void main(String[] args){
-        DynamicArray dArr = new DynamicArray();
-
-        dArr.add(3);
-        dArr.add(6);
-        dArr.add(14);
-        dArr.add(12);
-        dArr.add(17);
-        dArr.add(49);
-        dArr.add(23);
-
-        // System.out.printf("Element from index: %d%n", dArr.get(1));
-        // System.out.printf("Element from index: %d%n", dArr.get(0));
-        // System.out.printf("Element from index: %d%n", dArr.get(2));
-
-        // System.out.println(dArr.toString());
-        // dArr.remove();
-        // dArr.remove();
-        // dArr.remove();
-        // dArr.remove();
-
-        // System.out.println(dArr.toString());
-        // dArr.remove(3);
-        // dArr.remove(5);
-        // dArr.remove(4);
-        // dArr.remove(4);
     }
 }
