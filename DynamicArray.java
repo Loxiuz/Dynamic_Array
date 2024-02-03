@@ -41,8 +41,9 @@ public class DynamicArray{
     } else {
         dataArr[dataArrSize-1] = 0;
         dataArrSize--;
-    }    
-    System.out.print(toString());
+    }
+        
+    // System.out.print(toString());
     }
 
     public void remove(int i){
@@ -72,7 +73,7 @@ public class DynamicArray{
     }
 
     public void clear(){
-        dataArr = new int[10];
+        dataArr = new int[INITIAL_SIZE];
         dataArrSize = 0;
         System.out.println(toString());
     }
@@ -84,6 +85,24 @@ public class DynamicArray{
         }
         dataArr = newArr;
         System.out.print(toString());
+    }
+
+    public void shrink(){
+        if(canShrink()){
+            var newArr = new int[dataArr.length - growSize];
+            for(int i = 0; i < newArr.length; i++){
+            newArr[i] = dataArr[i];
+            }
+            dataArr = newArr; 
+        } else {
+            System.out.print("Too many elements in array to shrink!");
+        }
+        System.out.print(toString());
+        
+    }
+
+    private boolean canShrink(){
+        return dataArr.length > dataArrSize && dataArrSize - dataArr.length > growSize && dataArr.length - growSize >= INITIAL_SIZE;
     }
 
     public String toString(){

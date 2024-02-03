@@ -18,6 +18,9 @@ public class Main{
         dArr.add(45);
         dArr.add(58);
         dArr.add(100);
+        dArr.remove();
+
+        dArr.shrink();
 
         // System.out.printf("Element from index: %d%n", dArr.get(1));
         // System.out.printf("Element from index: %d%n", dArr.get(0));
